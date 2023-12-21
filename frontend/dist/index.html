@@ -22,45 +22,64 @@
       <li><a href="#contact">Recipes</a></li>
       <li><a href="#search"> <i data-feather="search"></i></a></li>
       <div class="button-group-right">
-      <li><button class="outline-button text-button">login</button></li>
-      <li><button class="fill-button text-button">sign in</button></li>
-    </div>
+        <li><button class="outline-button text-button">login</button></li>
+        <li><button class="fill-button text-button">sign in</button></li>
+      </div>
   </nav>
   </div>
 
   <main>
-  <div class="container-main">
-    <div>
-      <h2>Healthy Vegan <span class="text-medium">Recipes</span> & <span class="text-medium">Restaurants</span> Reviews</h2>
-      <p id="subtitle">Welcome to my website ! Here you can find all my recipes as well as all the reviews I gave to my
-        local vegan restaurant.
-      </p>
-      <div class="button-group">
-       <button class="fill-button text-button">Get started</button>
-        <button class="outline-button text-button"> recipes</button>
+    <div class="container-main">
+      <div>
+        <h2>Healthy Vegan <span class="text-medium">Recipes</span> & <span class="text-medium">Restaurants</span>
+          Reviews</h2>
+        <p id="subtitle">Welcome to my website ! Here you can find all my recipes as well as all the reviews I gave to
+          my
+          local vegan restaurant.
+        </p>
+        <div class="button-group">
+          <button class="fill-button text-button">Get started</button>
+          <button class="outline-button text-button"> recipes</button>
+        </div>
+      </div>
+
+      <div class="container-main-img">
+        <img src="img/veganPoke.png" />
       </div>
     </div>
 
-    <div class="container-main-img">
-      <img src="img/veganPoke.png" />
-    </div>
-  </div>
-
-    <div>
+    <div class="container-main-bottom">
       <div id="reviews">
-        <a href class="arrow-button">View more reviews</a>
+        <a href class="arrow-button">
+          <span class="text-medium">View more reviews</span>
+          <div class="arrow-left"><i data-feather="arrow-right"></i></div>
+        </a>
         <div class="card-review">
           <img src="img/restaurantExample.jpg" />
+          <div class="container-heart"><i class="heart" data-feather="heart"></i></div>
+          <div class="card-review-detail">
+            <span  class="text-medium">Veganese italia</span>
+            <div id="star-rating">
+              <i class="empty-star" data-feather="star"></i>
+              <i class="empty-star" data-feather="star"></i>
+              <i class="empty-star" data-feather="star"></i>
+              <i class="empty-star" data-feather="star"></i>
+              <i class="filled-star" data-feather="star"></i>
+
+            </div>
+
+          </div>
         </div>
       </div>
 
 
       <div id="recipes">
-        <a href>View more recipes</a>
-        <i class="ion-arrow-forward"></i> This is an Ionic Icon
+        <a href class="arrow-button">
+          <span class="text-medium">View more recipes</span>
+          <div class="arrow-left"><i data-feather="arrow-right"></i></div>
+        </a>
         <div class="card-recipe">
           <img src="img/vegetableDish.jpg" />
-
         </div>
       </div>
 

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
 @import "../../node_modules/feather-icons/dist/feather.js";
 @import url("https://use.typekit.net/jlq0hlp.css");
+@import "../../node_modules/starry-rating/src/style/Starry.scss";
 
 :root {
     --primary-color: #FD6C55;
@@ -151,6 +152,7 @@ h2 {
     display: flex;
     max-width: 100%;
     justify-content: flex-end;
+    
 }
 
 .container-main-img img {
@@ -160,12 +162,76 @@ h2 {
 }
 
 .card-review {
-    max-width: 100%;
-    margin: 0 auto;
+    max-width: 30%;
+    position: relative;
 }
 
 .card-review img {
-    width: 30%;
     max-width: 100%;
-    height: auto;
+    height: auto;   
+}
+
+.card-review-detail{
+    margin-top:5%;
+    color: var(--text-color);
+    display:flex;
+    max-width: 100%;
+    justify-content: space-between;
+    font-size: 25px;
+}
+
+.container-heart{
+    margin: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    width: 40px;
+    height:40px; 
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.heart {
+    stroke-width: 3;
+    stroke: var(--text-color);
+}
+
+
+.heart-active{
+    stroke-width: 3;
+    stroke: var(--text-color);
+    fill:var(--text-color);
+
+}
+
+.arrow-button{
+display: flex;
+text-decoration: none;
+justify-content: space-around;
+color: var(--text-color);
+max-width: 12%;
+margin-bottom: 10px;
+}
+
+
+.filled-star{
+   color: var(--text-color);
+   fill:var(--text-color);
+   stroke-width: 3;
+}
+.empty-star{
+    color: var(--text-color);
+    stroke-width: 3;
+}
+
+.container-main-bottom{
+    display: flex
+}
+
+.recipes{
+
 }
