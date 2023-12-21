@@ -1,0 +1,171 @@
+@import url('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import "../../node_modules/feather-icons/dist/feather.js";
+@import url("https://use.typekit.net/jlq0hlp.css");
+
+:root {
+    --primary-color: #FD6C55;
+    --text-color: #423A3A;
+    --detail-text-color: #A8A3A3;
+    --background-color: #F6F6F6;
+    --title-color: #251F1F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 50px;
+
+}
+
+.container-main {
+    display: flex;
+    align-items: center;
+}
+
+#logo-home {
+    font-family: 'Yeseva One', serif;
+    font-size: 50px;
+    color: #000000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    list-style-type: none;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 16px;
+    font-family: "neue-kabel", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.active-nav{
+    display: flex;
+    justify-content: center;
+  border-bottom:3px solid black;
+  padding: .5px;
+  width: 2%;
+  align-self: center;
+}
+
+p {
+    font-family: "neue-kabel", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-color);
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 32%;
+    margin-bottom: 10%;
+
+}
+
+.button-group-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 16%;
+
+}
+
+.fill-button {
+    box-sizing: border-box;
+    color: white;
+    border: 3px solid var(--primary-color);
+    background-color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 3px 30px;
+
+}
+
+
+.outline-button {
+    box-sizing: border-box;
+    border: 3px solid var(--primary-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 3px 30px;
+    background-color: white;
+}
+
+.text-button {
+    font-size: 16px;
+    font-family: "neue-kabel", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+h2 {
+    margin-top: 10%;
+
+    font-size: 60px;
+    font-family: "neue-kabel", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--title-color)
+}
+
+.text-medium {
+    font-family: "neue-kabel", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+#subtitle {
+    margin: 5% 0%;
+    max-width: 75%;
+    color: var(--detail-text-color)
+}
+.card-recipe {
+    display: flex;
+    max-width: 100%;
+    justify-content: flex-end;
+}
+
+.card-recipe img {
+    width: 20%;
+    max-width: 100%;
+    height: auto;
+}
+
+.container-main-img {
+    display: flex;
+    max-width: 100%;
+    justify-content: flex-end;
+}
+
+.container-main-img img {
+    width: 70%;
+    max-width: 100%;
+    height: auto;
+}
+
+.card-review {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.card-review img {
+    width: 30%;
+    max-width: 100%;
+    height: auto;
+}

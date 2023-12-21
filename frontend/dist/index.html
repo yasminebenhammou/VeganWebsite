@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Getting Started</title>
+  <script src="https://unpkg.com/lodash@4.17.20"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <link rel="stylesheet" href="css/index.css">
+  <script>
+    feather.replace();
+  </script>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="#home" id="logo-home">VegiGuide</a></li>
+      <li class="active-nav"><a href="#home">Home</a></li>
+      <li><a href="#nesws">Restaurants</a></li>
+      <li><a href="#contact">Recipes</a></li>
+      <li><a href="#search"> <i data-feather="search"></i></a></li>
+      <div class="button-group-right">
+      <li><button class="outline-button text-button">login</button></li>
+      <li><button class="fill-button text-button">sign in</button></li>
+    </div>
+  </nav>
+  </div>
+
+  <main>
+  <div class="container-main">
+    <div>
+      <h2>Healthy Vegan <span class="text-medium">Recipes</span> & <span class="text-medium">Restaurants</span> Reviews</h2>
+      <p id="subtitle">Welcome to my website ! Here you can find all my recipes as well as all the reviews I gave to my
+        local vegan restaurant.
+      </p>
+      <div class="button-group">
+       <button class="fill-button text-button">Get started</button>
+        <button class="outline-button text-button"> recipes</button>
+      </div>
+    </div>
+
+    <div class="container-main-img">
+      <img src="img/veganPoke.png" />
+    </div>
+  </div>
+
+    <div>
+      <div id="reviews">
+        <a href class="arrow-button">View more reviews</a>
+        <div class="card-review">
+          <img src="img/restaurantExample.jpg" />
+        </div>
+      </div>
+
+
+      <div id="recipes">
+        <a href>View more recipes</a>
+        <i class="ion-arrow-forward"></i> This is an Ionic Icon
+        <div class="card-recipe">
+          <img src="img/vegetableDish.jpg" />
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
