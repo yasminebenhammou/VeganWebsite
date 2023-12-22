@@ -22,7 +22,7 @@ function sortRecipes() {
     console.log('value options '+selectedOption)
     // https://api.edamam.com/api/recipes/v2?type=public&app_id=2cb280cd&app_key=5996a4b27890afada3aefcc975ca1262&health=vegan&mealType=Breakfast&imageSize=REGULAR
 
-fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${selectedOption}&to=40&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
+fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${selectedOption}&health=vegan&to=40&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`)
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
@@ -47,12 +47,19 @@ fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${selectedOption}&to=
     .catch(error => {
         console.error('Fetch error:', error);
     });
-
-
 }
+
+
+
+
+function detailpage(uri){
+    console.log("here is the uri "+uri)
+    window.location.href = "./detail.html?id="+uri
+}
+
     function displayRecipes(data) {        
         return `
-        <img src='${data.images.REGULAR.url}'/>
+      <img src='${data.images.REGULAR.url}' onClick="detailpage('${data.uri}')"  />
         <div class="card-recipe-detail">
         <div>${data.label}</div>
         <p class="detail-light-text">${data.summary}</p>
