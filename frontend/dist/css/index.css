@@ -4,10 +4,33 @@
 @import url("https://use.typekit.net/jlq0hlp.css");
 @import "../../node_modules/starry-rating/src/style/Starry.scss";
 
+
+
+  @font-face {
+    font-family: 'palanquin-regular';
+    src: url('./fonts/Palanquin_Dark/PalanquinDark-Regular.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  
+  @font-face {
+    font-family: 'candara-bold';
+    src: url('./fonts/candara/Candara_Bold.ttf')  format("truetype");
+    font-weight: bold;
+  }
+
+  @font-face {
+    font-family: 'candara-regular';
+    src: url('./fonts/candara/Candara.ttf')  format("truetype");
+    font-weight: bold;
+  }
+
+
 :root {
     --primary-color: #FD6C55;
     --text-color: #423A3A;
-    --detail-text-color: #A8A3A3;
+    --detail-text-color: #797575;
     --background-color: #F6F6F6;
     --title-color: #251F1F;
 }
@@ -21,8 +44,12 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0px 50px;
+    background-color: var(--background-color);
 
 }
+
+
+
 
 .container-main {
     display: flex;
@@ -39,7 +66,7 @@ nav ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 15px 0;
     list-style-type: none;
 }
 
@@ -136,16 +163,54 @@ h2 {
     max-width: 75%;
     color: var(--detail-text-color)
 }
+
+.container-main-bottom{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin-bottom: 7%;
+
+}
+
+#reviews{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 40%;
+}
+#recipes{
+    display: flex;
+    align-items: flex-end;
+    flex-basis: 60%;
+    flex-direction: column;
+   justify-content: flex-end;
+}
+
 .card-recipe {
     display: flex;
     max-width: 100%;
+    align-items: flex-end;
     justify-content: flex-end;
 }
 
+   .card-recipe .item{
+        max-width: 100%;
+        width: 35%;
+        margin: 0 2%;
+    }
+
 .card-recipe img {
-    width: 20%;
     max-width: 100%;
     height: auto;
+}
+
+.detail-light-text{
+    color:var(--detail-text-color)
+}
+
+.card-recipe-detail div {
+    margin: 5% 0px;
+    font-family: "candara-bold", sans-serif;
+
 }
 
 .container-main-img {
@@ -162,7 +227,8 @@ h2 {
 }
 
 .card-review {
-    max-width: 30%;
+    max-width: 100%;
+    width: 70%;
     position: relative;
 }
 
@@ -208,15 +274,25 @@ h2 {
 
 }
 
-.arrow-button{
-display: flex;
-text-decoration: none;
-justify-content: space-around;
-color: var(--text-color);
-max-width: 12%;
-margin-bottom: 10px;
+.arrow-button1{
+    display: flex;
+    text-decoration: none;
+    justify-content: space-around;
+    color: var(--text-color);
+    max-width: 100%;
+    width: 30%;
+    margin-bottom: 10px;
 }
 
+.arrow-button2{
+    display: flex;
+    text-decoration: none;
+    justify-content: space-around;
+    color: var(--text-color);
+    max-width: 100%;
+    width: 25%;
+    margin-bottom: 10px;
+}
 
 .filled-star{
    color: var(--text-color);
@@ -228,10 +304,75 @@ margin-bottom: 10px;
     stroke-width: 3;
 }
 
-.container-main-bottom{
-    display: flex
+#quote-symbol{
+    font-family: 'palanquin-regular',sans-serif;
+    font-size: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+}
+.container-explanation{
+    display: flex;
+    background-color: white;
+    position: relative;
+    padding: 5%;
+}
+.explanation{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.recipes{
 
+.quote-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 70%;
+    position: relative;
+}
+
+.quote{
+    font-family: 'candara-bold',sans-serif;
+    font-size: 20px;
+    width: 50%;
+    margin-bottom: 5%;
+}
+
+
+#author{
+    font-family: 'candara-regular',sans-serif;
+
+}
+
+.div-line{
+    border-bottom: 3px solid var(--title-color);
+}
+
+
+.popup-background {
+    display:  none;
+    position:  fixed; 
+    width:  100vw;
+    height:  100vh;
+    top:  0;
+    left:  0;
+    background-color:  rgba(0,  0,  0,  0.5);
+    align-items:  center;
+    justify-content:  center;
+
+}
+
+
+.popup  {
+    background-color:  white; /* White background, pretty self explanatory. */
+    text-align:  center; /* Center the text inside the popup. */
+    padding:  20px; /* Make a bit of room around the text. */
+    border-radius:  5px; /* Round the corners of the popup. */
+}
+
+
+.error-auth{
+    color:red
 }

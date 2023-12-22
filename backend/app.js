@@ -1,9 +1,11 @@
 const express = require('express')
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const bcrypt = require("bcryptjs")
+const cors = require('cors');
 
 const bodyParser = require('body-parser');
 const app = express();
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(express.static('public'));
@@ -140,54 +142,54 @@ app.post('/auth/register', async (req, res) => {
   let hashedPassword = await bcrypt.hash(password, 8)
 
   if (!username || !email || !password || !confirm_password) {
-    return res.status(400).send({ error: "bad request: password, email or username are required" });
+    return res.status(400).json({ message: "password, email or username are required" });
+
   }
   if (password != confirm_password) {
-    return res.status(400).send({ error: "passwords do not match" });
+    return res.status(400).json({ message: "passwords do not match" });
   }
 
   const db = await getDatabase();
-  const verifyEmail = await db.collection("user").findOne({ email: req.body.email });
-  const verifyUsername = await db.collection("user").findOne({ email: req.body.email });
+  const verifyEmail = await db.collection("users").findOne({ email: email });
+  const verifyUsername = await db.collection("users").findOne({ username: username});
 
-  if (verifyEmail) {
-    return res.status(400).send({ error: 'This user already exists' });
+  if (verifyEmail||verifyUsername) {
+    console.log('UUUUUUUUUSER   '+verifyEmail)  
+ 
+    if(verifyEmail) {return res.status(400).json({ message: 'A user with this email already exists' });}
+    if(verifyUsername) {return res.status(400).json({ message: 'This username is already taken.' });}
+
   }
-
-  if (verifyUsername) {
-    return res.status(400).send({ error: 'This username is already taken.' });
-
-  }
+else{
   let newuser = { email, username, password:hashedPassword }
   console.log('new user ' + JSON.stringify(newuser))
   await db.collection("users").insertOne(newuser);
-
-  return res.send({ message: 'User successfully created ! ' });
+  return res.status(200).json({ message: 'Welcome! Your account is created ' });
+}
+  
 });
 
 
 app.post('/auth/login', async (req, res) => {
 
   const { password, email } = req.body;
-
+  console.log('user information '+password,email)
 
   if (!email || !password) {
-    return res.status(400).send({ error: "bad request: password or email are required" });
+    return res.status(400).send({ message: "password or email are required" });
   }
 
   const db = await getDatabase();
 
   const user = await db.collection("users").findOne({email});
 
+ if (!user) {
+    return res.status(400).send({ message: "This account doesn't exist" });
+  }
   const comparePassword = await bcrypt.compare(password, user.password);
 
   if (!comparePassword) {
     return res.status(401).json({ message: 'Invalid email or password' });
-  }
-
-
-  if (!user) {
-    return res.status(400).send({ error: "This account doesn't exist" });
   }
   console.log('the account found ' + JSON.stringify(user))
 
@@ -207,7 +209,7 @@ app.get('/api/favorites/:userId', async (req, res) => {
     res.status(200).send(favorite);
 
   } catch (error) {
-    res.status(404).json({ message: error.message });
+    res.status(404).json({ error: error.message });
   }
   finally {
     await client.close()
