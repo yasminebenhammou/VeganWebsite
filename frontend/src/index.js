@@ -1,14 +1,14 @@
 const userId = sessionStorage.getItem('userId');
 
 
-console.log('loaded bitch ' + userId)
+console.log('page loaded ' + userId)
 
 if (!userId) {
   navbar()
 } else {
   navbarLogged()
 
-  fetch('http://localhost:3000/api/users/'+userId, {
+  fetch('http://127.0.0.1:3000/api/users/'+userId, {
     method: "GET",
     headers: { 'Content-Type': 'application/json' },
   }).then(response => response.json())
@@ -75,50 +75,10 @@ function openRegisterPopup() {
   document.getElementById("popup_register")
     .style.display = "flex";
 }
-var currentIndex;
-
-var totalImages=document.getElementById("carousel-container").getElementsByTagName("img").length
 
 
-var imgSlider = simpleslider.getSlider({
-  container: document.getElementById('carousel-container'),
-  prop: 'left',
-  init: -612,
-  show: 0,
-  end: 612,
-  unit: 'px',
-  transitionTime:.5,
-    delay:1.5,
-    onChange: getCurrentIndex
-    
-
-});
-
-function getCurrentIndex() {
-  currentIndex = imgSlider.currentIndex();
-  changeSlide(currentIndex);
-}
-
-function changeSlide(index) {
-  const dotsall = document.querySelectorAll('.dot'); 
-  dotsall.forEach((dot, i) => {
-    dot.classList.toggle('active', i === index);
-  });
-  
-}
-
-
-for (let i = 0; i < totalImages; i++) {
-  const dotsContainer = document.getElementById('dots-container');
-  const newDot = document.createElement('div');
-  newDot.classList.add('dot');
-  dotsContainer.appendChild(newDot);
-}
 
 
 
 
 feather.replace();
-
-
-

@@ -6,18 +6,16 @@
   <title>Getting Started</title>
   <script src="https://unpkg.com/lodash@4.17.20"></script>
   <script src="https://unpkg.com/feather-icons"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-slider/1.0.0/simpleslider.min.js"></script>
   <link rel="stylesheet" href="css/index.css">
-  <script>
-    feather.replace();
-  </script>
+ 
 </head>
 
 <body>
   <nav id="navbar">
- 
+
   </nav>
-  </div>
 
   <main>
     <div class="container-main">
@@ -25,8 +23,7 @@
         <h2>Healthy Vegan <span class="text-medium">Recipes</span> & <span class="text-medium">Restaurants</span>
           Reviews</h2>
         <p id="subtitle">Welcome to my website ! Here you can find all my recipes as well as all the reviews I gave to
-          my
-          local vegan restaurant.
+          my local vegan restaurant.
         </p>
         <div class="button-group">
           <button class="fill-button text-button">Get started</button>
@@ -38,45 +35,44 @@
         <img src="img/veganPoke.png" />
       </div>
 
-      
     </div>
 
-    <div  class="popup-background" id="popup_login">
-      <div  class="popup" id="popup">
+    <div class="popup-background" id="popup_login">
+      <div class="popup" id="popup">
         <form id="loginForm" onsubmit="loginForm(event)">
           <label for="email">email:</label>
-          <input type="text" id="emailLoginInput"  placeholder="type in your email">
+          <input type="text" id="emailLoginInput" placeholder="type in your email">
           <label for="password">Password:</label>
-          <input type="password" id="passwordLoginInput"  placeholder="type in your password">
+          <input type="password" id="passwordLoginInput" placeholder="type in your password">
 
           <button type="submit">Login</button>
         </form>
         <div id="error-login" class="error-auth"></div>
-        <button  onclick="closeLoginPopup()">Close popup</button>
+        <button onclick="closeLoginPopup()">Close popup</button>
       </div>
     </div>
-    
 
-    <div  class="popup-background" id="popup_register">
-      <div  class="popup" id="popup">
+
+    <div class="popup-background" id="popup_register">
+      <div class="popup" id="popup">
         <form id="registerForm" onsubmit="submitRegisterForm(event)">
           <label for="username">Username</label>
-          <input type="text" id="usernameInput"  placeholder="type in your username">
+          <input type="text" id="usernameInput" placeholder="type in your username">
           <label for="email">email:</label>
-          <input type="text" id="emailRegisterInput"  placeholder="type in your email">
+          <input type="text" id="emailRegisterInput" placeholder="type in your email">
 
           <label for="password">Password:</label>
-          <input type="password" id="passwordRegisterInput"  placeholder="type in your password">
+          <input type="password" id="passwordRegisterInput" placeholder="type in your password">
 
           <label for="confirm_password">confirm password</label>
           <input type="password" id="confirmInput" placeholder="confirm your  password">
           <button type="submit">Register now</button>
         </form>
         <div id="error-register" class="error-auth"></div>
-        <button  onclick="closeRegisterPopup()">Close popup</button>
+        <button onclick="closeRegisterPopup()">Close popup</button>
       </div>
     </div>
-    
+
 
     <div class="container-main-bottom">
       <div id="reviews">
@@ -84,22 +80,10 @@
           <span class="text-medium">View more reviews</span>
           <div class="arrow-left"><i data-feather="arrow-right"></i></div>
         </a>
-        <div class="card-review">
-          <img src="img/restaurantExample.jpg" />
-          <div class="container-heart"><i class="heart" data-feather="heart"></i></div>
-          <div class="card-review-detail">
-            <span class="text-medium">Veganese italia</span>
-            <div id="star-rating">
-              <i class="empty-star" data-feather="star"></i>
-              <i class="empty-star" data-feather="star"></i>
-              <i class="empty-star" data-feather="star"></i>
-              <i class="empty-star" data-feather="star"></i>
-              <i class="filled-star" data-feather="star"></i>
 
-            </div>
-
-          </div>
+        <div id="card-review">
         </div>
+
       </div>
 
 
@@ -108,29 +92,12 @@
           <span class="text-medium">View more recipes</span>
           <div class="arrow-left"><i data-feather="arrow-right"></i></div>
         </a>
+        <div id="item-wrap">
 
-        <div class="card-recipe">
-          <div class="item">
-            <img src="img/vegetableDish.jpg" />
-            <div class="card-recipe-detail">
-              <div>Green matcha smoothie with roasted seeds</div>
-              <p class="detail-light-text">Your go-to source for all things vegan! From mouthwatering ...</p>
-
-            </div>
-          </div>
-
-
-          <div class="item">
-            <img src="img/vegetableDish.jpg" />
-            <div class="card-recipe-detail">
-              <div>Green matcha smoothie with roasted seeds</div>
-              <p class="detail-light-text">Your go-to source for all things vegan! From mouthwatering ...</p>
-
-            </div>
-          </div>
         </div>
-
       </div>
+
+    </div>
 
     </div>
 
@@ -154,81 +121,118 @@
     <div class="div-line"> </div>
 
     <div class="container-slider1">
-      <div class="container-titles-slider1">
-        <h4>FROM RECIPES</h4>
-        <h3>NEW Plant-Based recipes!</h3>
 
-      </div>
-      <div class="container-items-slider1">
-        <div class="container-item-img1">
-          <img src="" />
+      <div class="container-content-slider1">
+        <div class="container-titles-slider1">
+          <h4 class="subtitle-slide">FROM RECIPES</h4>
+          <h3 class="maintitle-slide">NEW Plant-Based recipes !</h3>
+
         </div>
-        <div>
-          <div class="item-title1">Carrot Burger</div>
+        <div class="container-items-slider1">
 
-          <div class="item-details1">
-            Lorem ipsum dolor sit amet,
-            consectetur dipiscing elit.
-            Sed viverra, augue sit amet
-            tincidunt, justo elit.
+          <div class="left-slider1">
+            <img src="http://placekitten.com/g/612/612" />
           </div>
-          <button class="outline-button text-button">See recipe</button>
+          <div class="right-slider1">
+            <div class="item-title1">Carrot Burger</div>
+
+            <div class="item-details1">
+              Lorem ipsum dolor sit amet,
+              consectetur dipiscing elit.
+              Sed viverra, augue sit amet
+              tincidunt, justo elit.
+            </div>
+            <button class="outline-button text-button">See recipe</button>
+          </div>
         </div>
+
+
+      </div>
+      <div class="slider2-btn-container">
+        <button class="chevron-left slider2-prev-btn"><i data-feather="chevron-left"></i></button>
+        <button class="chevron-right slider2-next-btn"><i data-feather="chevron-right"></i></button>
       </div>
     </div>
 
 
-<div class="container-slider2">
-  <div class="container-titles-slider2">
+    <div class="container-slider2">
 
-    <div>
-   <h4>FROM RECIPES</h4>
-   <h3>Find your perfect recipe!</h3>
+      <div class="slider2-header">
+        <div class="container-titles-slider2">
+          <h4 class="subtitle-slide">FROM RECIPES</h4>
+          <h3 class="maintitle-slide">Find your perfect recipe !</h3>
+        </div>
+        <div class="show-more">
+          <a href="">Show more</a>
+        </div>
+      </div>
+
+      <div class="container-items-slider2">
+        <div class="slider2-item">
+          <div class="slider2-img">
+            <img src="https://picsum.photos/612/612" />
+          </div>
+          <div class="slider2-item-details">
+            <div class="subtitle-slide date">5 septembre , 2023</div>
+            <div class="slider2-title">Green matcha smoothie with roasted seeds</div>
+            <div class="slider2-explanation">This is our go-to breakfast on a warm summer day. A vibrant breakfast of
+              blended....</div>
+          </div>
+        </div>
+        <div class="slider2-item">
+          <div class="slider2-img">
+            <img src="https://picsum.photos/612/612" />
+          </div>
+          <div class="slider2-item-details">
+            <div class="subtitle-slide date">5 septembre , 2023</div>
+            <div class="slider2-title">Green matcha smoothie with roasted seeds</div>
+            <div class="slider2-explanation">This is our go-to breakfast on a warm summer day. A vibrant breakfast of
+              blended....</div>
+          </div>
+        </div>
+
+        <div class="slider2-item">
+          <div class="slider2-img">
+            <img src="https://picsum.photos/612/612" />
+          </div>
+          <div class="slider2-item-details">
+            <div class="subtitle-slide date">5 septembre , 2023</div>
+            <div class="slider2-title">Green matcha smoothie with roasted seeds</div>
+            <div class="slider2-explanation">This is our go-to breakfast on a warm summer day. A vibrant breakfast of
+              blended....</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="slider2-btn-container">
+        <button class="chevron-left slider2-prev-btn"><i data-feather="chevron-left"></i></button>
+        <button class="chevron-right slider2-next-btn"><i data-feather="chevron-right"></i></button>
+
+      </div>
     </div>
-
-    <div class="show-more">
-      <a href="">Show more</a>
-    </div>
- 
-
-  <div class="container-items-slider2">
-  <div class="slider2-item">
-    <img src="">
-  </div>
-
-  <div class="slider2-item-details">
-   <span>5 septembre , 2023</span>
-   <span>Green matcha smoothie with 
-    roasted seeds</span>
-    <span>This is our go-to breakfast on
-      a warm summer day. A vibrant 
-      breakfast of blended....</span>
-  </div>
-  </div>
-  </div>
-
-  </div>
-
-
-  <div id="carousel-container">
-    <img src="http://placekitten.com/g/612/612"/>
-    <img src="https://picsum.photos/612/612"/>
-    <img src="https://picsum.photos/612/612?random=1"/>
-    
-    
-   </div>
-   <div id="dots-container">
-    <!-- Add more dots corresponding to the number of slides -->
-  </div>
 
   
+    <!-- <div id="carousel-container">
+      <img src="http://placekitten.com/g/612/612" />
+      <img src="https://picsum.photos/612/612" />
+      <img src="https://picsum.photos/612/612?random=1" />
 
+    </div>
+    <div id="dots-container">
+       Add more dots corresponding to the number of slides
+    </div>
+    
+    </div>  -->
 
-
+   
   </main>
 
-  <script src="./../src/index.js"></script>
   <script src="./../src/scripts/authentication.js" defer type="module"></script>
+  <script src="./../src/scripts/carousel.js" defer type="module"></script>
+  <script src="./../src/scripts/slider.js" defer type="module"></script>
+  <script src="./../src/scripts/recipes.js" defer type="module"></script>
+  <script src="./../src/scripts/restaurant.js" defer type="module"></script>
+  <script src="./../src/index.js"></script>
 
 </body>
 
