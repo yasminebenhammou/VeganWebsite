@@ -154,7 +154,6 @@ app.post('/auth/register', async (req, res) => {
   const verifyUsername = await db.collection("users").findOne({ username: username});
 
   if (verifyEmail||verifyUsername) {
-    console.log('UUUUUUUUUSER   '+verifyEmail)  
  
     if(verifyEmail) {return res.status(400).json({ message: 'A user with this email already exists' });}
     if(verifyUsername) {return res.status(400).json({ message: 'This username is already taken.' });}
