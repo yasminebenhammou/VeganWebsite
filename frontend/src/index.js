@@ -1,54 +1,75 @@
-console.log('loaded bitch')
-function component() {
-    const element = document.createElement('div');
-  
-    // Lodash, currently included via a script, is required for this line to work
-    // element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  
-    return element;
-  }
+const userId = sessionStorage.getItem('userId');
+console.log('loaded bitch ' + userId)
 
-  const user = sessionStorage.getItem('userId');
+if (!userId) {
+  navbar()
+} else {
+  navbarLogged()
 
-if (!user) {
-    // window.location.href = "frontend/login.html";
+  fetch('http://localhost:3000/api/users/'+userId, {
+    method: "GET",
+    headers: { 'Content-Type': 'application/json' },
+  }).then(response => response.json())
+    .then((result) => {
+      console.log('you are logged in ' + JSON.stringify(result))
+    });
+    }
+
+function navbarLogged() {
+  document.getElementById("navbar").innerHTML = 
+  `<ul>
+  <li><a href="#home" id="logo-home">VegiGuide</a></li>
+  <li class="active-nav"><a href="#home">Home</a></li>
+  <li><a href="#nesws">Restaurants</a></li>
+  <li><a href="#contact">Recipes</a></li>
+  <li><a href="#search"> <i data-feather="search"></i></a></li>
+  <div class="button-group-right">
+    <li>Profile</li>
+    <button onclick="logout()">logout</button>
+  </div>
+  </ul>`
 }
 
-// fetch('http://localhost:3000/auth/login', {
-//     method: "POST",
-//     headers: {'Content-Type': 'application/json'}, 
-//     body: JSON.stringify({ uuid: uuid })
-    
-// }).then(response => response.json())
-// .then((result) => {
-//     if (!result.username) {
-//         window.location.href = "frontend/login.html";
-//     }
-    
-//     console.log('User is logged in!');
-// });
+function navbar() {
+  document.getElementById("navbar").innerHTML = 
+  `<ul>
+  <li><a href="#home" id="logo-home">VegiGuide</a></li>
+  <li class="active-nav"><a href="#home">Home</a></li>
+  <li><a href="#nesws">Restaurants</a></li>
+  <li><a href="#contact">Recipes</a></li>
+  <li><a href="#search"> <i data-feather="search"></i></a></li>
+  <div class="button-group-right">
+    <li><button class="outline-button text-button" onclick="openLoginPopup()">login</button></li>
+    <li><button class="fill-button text-button" onclick="openRegisterPopup()">sign in</button></li>
+  </div>
+  </ul>`
+}
+
+function logout(){
+  sessionStorage.removeItem("userId")
+  window.location.href = "../dist/index.html";
+}
 
 
-  function openLoginPopup() {
-    document.getElementById("popup_login").style.display  =  "flex";
-  }
+function openLoginPopup() {
+  document.getElementById("popup_login").style.display = "flex";
+}
 
-  function closeRegisterPopup()  {
-    document.getElementById("popup_register").style.display  =  "none";
-  }
+function closeRegisterPopup() {
+  document.getElementById("popup_register").style.display = "none";
+}
 
-  function closeLoginPopup()  {
-    document.getElementById("popup_login").style.display  =  "none";
-  }
-
-
-  function openRegisterPopup() {
-    document.getElementById("popup_register") 
-    .style.display  =  "flex";
-  }
+function closeLoginPopup() {
+  document.getElementById("popup_login").style.display = "none";
+}
 
 
-  feather.replace();
+function openRegisterPopup() {
+  document.getElementById("popup_register")
+    .style.display = "flex";
+}
 
-  document.body.appendChild(component());
+
+feather.replace();
+
 

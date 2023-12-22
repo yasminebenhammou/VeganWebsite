@@ -10,8 +10,6 @@ async function submitLoginForm(event) {
         email: document.getElementById('emailLoginInput').value,
         password: document.getElementById('passwordLoginInput').value
     }
-    console.log(loginData)
-
 
     let result = await fetch("http://localhost:3000/auth/login", {
         method: "POST",
@@ -21,15 +19,17 @@ async function submitLoginForm(event) {
 
     result = await result.json();
 
-    if (!result.ok) {
+    if (result.error) {
          errorLoginDiv.innerHTML = result.message;
-        throw new Error(`HTTP error! Status: ${result.status} ` + result.message);
-
+        throw new Error(`HTTP error! Status: ${result.status} ` + result.id);
     }
-
-    sessionStorage.setItem('uuid', result._id);
-    console.log("the rrrrrreees "+result);
-
+    else{
+        errorLoginDiv.innerHTML = result.message;
+       console.log('Succesfully logged in')
+       sessionStorage.setItem('userId', result.id);
+       window.location.href = "../dist/index.html";
+   }
+   
 
 }
 
@@ -46,7 +46,6 @@ async function submitRegisterForm(event) {
         password: document.getElementById('passwordRegisterInput').value,
         username: document.getElementById('usernameInput').value,
         confirm_password: document.getElementById('confirmInput').value
-
     }
 
     console.log('registered submitted ' + JSON.stringify(registerData))
@@ -57,15 +56,20 @@ async function submitRegisterForm(event) {
     });
 
     result = await result.json();
-
-    if (!result.ok) {
+  
+    
+    if (result.error) {
         errorRegisterDiv.innerHTML = result.message;
-        throw new Error(`HTTP error! Status: ${result.status} ` + result.message);
+       throw new Error(`HTTP error! Status: ${result.status} ` + result.id);
+   }
+   else{
+    errorRegisterDiv.innerHTML = result.message;
+      console.log('Succesfully created account')
+      sessionStorage.setItem('userId', result.id);
+    //   location.replace("http://127.0.0.1:5500/dist/index.html")
+    window.location.href = "../dist/index.html";
 
     }
-
-    sessionStorage.setItem('userId', result._id);
-    console.log(result);
 
 }
 

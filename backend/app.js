@@ -42,7 +42,7 @@ app.get('/api/veganRecipes', async (req, res) => {
   try {
     const db = await getDatabase()
     let result = await db.collection("veganRecipes").find({}).toArray();
-    res.status(200).send(result);
+    res.send(result);
 
     console.log(result);
   } catch (error) {
@@ -60,7 +60,7 @@ app.get('/api/veganRecipes/:id', async (req, res) => {
     const db = await getDatabase()
     let ida = new ObjectId(req.params.id)
     let result = await db.collection("veganRecipes").findOne({ _id: ida });
-    res.status(200).send(result);
+    res.send(result);
 
     console.log(result);
   } catch (error) {
@@ -82,7 +82,7 @@ app.delete('/api/veganRecipes/:id', async (req, res) => {
 
     if (result.deletedCount === 0) throw new Error('Recipe not found');
 
-    res.status(200).json({ message: 'Recipe deleted successfully' });
+    res.json({ message: 'Recipe deleted successfully' });
 
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -106,7 +106,7 @@ app.post('/api/veganRecipes', async (req, res) => {
 
     }
     db.collection("veganRecipes").insertOne(newRecipe);
-    res.status(200).send("inserted a recipe in db");
+    res.json({message:"inserted a recipe in db"});
 
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -124,7 +124,7 @@ app.put('/api/veganRecipes/:id', async (req, res) => {
    let result=  await db.collection("veganRecipes").updateOne({ _id: recipeId }, { $set: req.body });
     console.log('msdg '+JSON.stringify(result))
 
-    res.status(200).send("updated a recipe in db");
+    res.json({message:"updated a recipe in db"});
 
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -136,7 +136,7 @@ app.put('/api/veganRecipes/:id', async (req, res) => {
 
 
 app.post('/auth/register', async (req, res) => {
-
+let result_id;
   const { username, password, email, confirm_password } = req.body;
 
   let hashedPassword = await bcrypt.hash(password, 8)
@@ -160,10 +160,12 @@ app.post('/auth/register', async (req, res) => {
 
   }
 else{
+  
   let newuser = { email, username, password:hashedPassword }
   console.log('new user ' + JSON.stringify(newuser))
-  await db.collection("users").insertOne(newuser);
-  return res.status(200).json({ message: 'Welcome! Your account is created ' });
+  let result = await db.collection("users").insertOne(newuser);
+  result_id = result.insertedId;
+  return res.send({ message: 'User successfully created ! ', id:result_id});
 }
   
 });
@@ -190,11 +192,7 @@ app.post('/auth/login', async (req, res) => {
   if (!comparePassword) {
     return res.status(401).json({ message: 'Invalid email or password' });
   }
-  console.log('the account found ' + JSON.stringify(user))
-
-
-
-  return res.send({ message: 'User successfully logged in ! ' });
+  return res.send({ message: 'User successfully logged in ! ', id:user._id});
 });
 
 
@@ -205,7 +203,7 @@ app.get('/api/favorites/:userId', async (req, res) => {
   try {
     const db = await getDatabase()
     const favorite = await db.collection("favorites").findOne({user_id:req.params.userId});
-    res.status(200).send(favorite);
+    res.send(favorite);
 
   } catch (error) {
     res.status(404).json({ error: error.message });
@@ -216,7 +214,23 @@ app.get('/api/favorites/:userId', async (req, res) => {
  
 });
 
+app.get('/api/users/:id', async (req, res) => {
 
+  try {
+    const db = await getDatabase()
+    let idUser = new ObjectId(req.params.id)
+//exclude password from being send to frontend when verify by id if user exists in db
+    const user = await db.collection("users").findOne({_id:idUser}, {projection: {password:0} })
+    res.send(user);
+
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+  finally {
+    await client.close()
+  }
+ 
+});
 
 app.post('/api/favorites', async (req, res) => {
 
@@ -225,7 +239,7 @@ app.post('/api/favorites', async (req, res) => {
     let userId = req.query.user_id;
     let favoriteId = req.query.favorite_id;
     const favorite = await db.collection("favorites").insertOne({user_id:userId,favorite_id:favoriteId});
-    res.status(200).send(favorite);
+    res.send(favorite);
 
   } catch (error) {
     res.status(404).json({ message: error.message });
