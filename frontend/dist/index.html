@@ -9,7 +9,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/simple-slider/1.0.0/simpleslider.min.js"></script>
   <link rel="stylesheet" href="css/index.css">
- 
+
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 
   <main>
     <div class="container-main">
-      <div>
+      <div class="main-title">
         <h2>Healthy Vegan <span class="text-medium">Recipes</span> & <span class="text-medium">Restaurants</span>
           Reviews</h2>
         <p id="subtitle">Welcome to my website ! Here you can find all my recipes as well as all the reviews I gave to
@@ -32,45 +32,90 @@
       </div>
 
       <div class="container-main-img">
-        <img src="img/veganPoke.png" />
+        <div id="carousel-container">
+          <img src="https://res.cloudinary.com/dmj6tqnkw/image/upload/v1703284517/veganPoke_h2truk.png" />
+          <img src="https://res.cloudinary.com/dmj6tqnkw/image/upload/v1703284450/falafel_chsvgm.png" />
+          <img src="https://res.cloudinary.com/dmj6tqnkw/image/upload/v1703284450/saladVegan_pwrybe.png" />
+
+        </div>
+        <div id="dots-container">
+        </div>
+
       </div>
+
+    </div>
 
     </div>
 
     <div class="popup-background" id="popup_login">
       <div class="popup" id="popup">
-        <form id="loginForm" onsubmit="loginForm(event)">
-          <label for="email">email:</label>
-          <input type="text" id="emailLoginInput" placeholder="type in your email">
-          <label for="password">Password:</label>
-          <input type="password" id="passwordLoginInput" placeholder="type in your password">
+        <div class="login-header">
+          <h4 class="title-login">Login</h4>
+          <button class="btn-close" onclick="closeLoginPopup()"> <i data-feather="x"></i></button>
+          </button>
+        </div>
 
-          <button type="submit">Login</button>
+        <form id="loginForm" onsubmit="loginForm(event)">
+
+          <div class="login-container">
+            <div class="container-inputs">
+              <div class="input">
+                <label for="email">Email </label>
+                <input type="text" id="emailLoginInput" placeholder="type in your email">
+              </div>
+
+              <div class="input">
+                <label for="password">Password </label>
+                <input type="password" id="passwordLoginInput" placeholder="type in your password">
+              </div>
+            </div>
+
+            <button type="submit" class="fill-button text-button btn-login">Login</button>
+          </div>
         </form>
         <div id="error-login" class="error-auth"></div>
-        <button onclick="closeLoginPopup()">Close popup</button>
       </div>
     </div>
 
 
     <div class="popup-background" id="popup_register">
       <div class="popup" id="popup">
+
+        <div class="login-header">
+          <h4 class="title-register">Register</h4>
+          <button class="btn-close" onclick="closeRegisterPopup()"> <i data-feather="x"></i></button>
+          </button>
+        </div>
+
         <form id="registerForm" onsubmit="submitRegisterForm(event)">
-          <label for="username">Username</label>
-          <input type="text" id="usernameInput" placeholder="type in your username">
-          <label for="email">email:</label>
-          <input type="text" id="emailRegisterInput" placeholder="type in your email">
+          <div class="login-container">
+            <div class="container-inputs">
+              <div class="input">
+                <label for="username">Username</label>
+                <input type="text" id="usernameInput" placeholder="type in your username">
+              </div>
 
-          <label for="password">Password:</label>
-          <input type="password" id="passwordRegisterInput" placeholder="type in your password">
+              <div class="input">
 
-          <label for="confirm_password">confirm password</label>
-          <input type="password" id="confirmInput" placeholder="confirm your  password">
-          <button type="submit">Register now</button>
+                <label for="email">email:</label>
+                <input type="text" id="emailRegisterInput" placeholder="type in your email">
+              </div>
+              <div class="input">
+
+                <label for="password">Password:</label>
+                <input type="password" id="passwordRegisterInput" placeholder="type in your password">
+              </div>
+              <div class="input">
+                <label for="confirm_password">confirm password</label>
+                <input type="password" id="confirmInput" placeholder="confirm your  password">
+              </div>
+            </div>
+            <button type="submit" class="fill-button text-button btn-login">Register now</button>
         </form>
+
         <div id="error-register" class="error-auth"></div>
-        <button onclick="closeRegisterPopup()">Close popup</button>
       </div>
+    </div>
     </div>
 
 
@@ -104,7 +149,6 @@
 
     <div class="container-explanation">
       <div class="quote-container">
-        <div id="quote-symbol">"</div>
         <span class="quote">"Discover the Power of Plant-Based"</span>
         <span id="author">- By Yasmine Benhammou</span>
       </div>
@@ -115,8 +159,6 @@
           delicious and meaningful.</p>
       </div>
     </div>
-
-
 
     <div class="div-line"> </div>
 
@@ -167,64 +209,36 @@
         </div>
       </div>
 
-      <div class="container-items-slider2">
-        <div class="slider2-item">
-          <div class="slider2-img">
-            <img src="https://picsum.photos/612/612" />
-          </div>
-          <div class="slider2-item-details">
-            <div class="subtitle-slide date">5 septembre , 2023</div>
-            <div class="slider2-title">Green matcha smoothie with roasted seeds</div>
-            <div class="slider2-explanation">This is our go-to breakfast on a warm summer day. A vibrant breakfast of
-              blended....</div>
-          </div>
-        </div>
-        <div class="slider2-item">
-          <div class="slider2-img">
-            <img src="https://picsum.photos/612/612" />
-          </div>
-          <div class="slider2-item-details">
-            <div class="subtitle-slide date">5 septembre , 2023</div>
-            <div class="slider2-title">Green matcha smoothie with roasted seeds</div>
-            <div class="slider2-explanation">This is our go-to breakfast on a warm summer day. A vibrant breakfast of
-              blended....</div>
-          </div>
-        </div>
+      <div id="container-items-slider2">
 
-        <div class="slider2-item">
-          <div class="slider2-img">
-            <img src="https://picsum.photos/612/612" />
-          </div>
-          <div class="slider2-item-details">
-            <div class="subtitle-slide date">5 septembre , 2023</div>
-            <div class="slider2-title">Green matcha smoothie with roasted seeds</div>
-            <div class="slider2-explanation">This is our go-to breakfast on a warm summer day. A vibrant breakfast of
-              blended....</div>
-          </div>
+        <div class="slider2-btn-container">
+          <button class="chevron-left slider2-prev-btn"><i data-feather="chevron-left"></i></button>
+          <button class="chevron-right slider2-next-btn"><i data-feather="chevron-right"></i></button>
+
         </div>
+      </div>
+
+
+    </div>
+
+
+
+    <div class="container-end">
+      <div>
+        <img src="https://res.cloudinary.com/dmj6tqnkw/image/upload/v1703281606/brunch_coihfw.jpg" />
 
       </div>
-      <div class="slider2-btn-container">
-        <button class="chevron-left slider2-prev-btn"><i data-feather="chevron-left"></i></button>
-        <button class="chevron-right slider2-next-btn"><i data-feather="chevron-right"></i></button>
-
+      <div>
+        <div class="header-end">
+          <h4 class="subtitle-slide title-end">FROM RESTAURANTS</h4>
+          <h3 class="maintitle-slide main-end">Find the best vegan restaurants !</h3>
+          <p>Dive into the tastiest vegan hotspots! Hit that button below to check out all the reviews on the coolest
+            plant-based joints. Don't miss out – your next delicious adventure is just a click away</p>
+        </div>
       </div>
-    </div>
-
-  
-    <!-- <div id="carousel-container">
-      <img src="http://placekitten.com/g/612/612" />
-      <img src="https://picsum.photos/612/612" />
-      <img src="https://picsum.photos/612/612?random=1" />
 
     </div>
-    <div id="dots-container">
-       Add more dots corresponding to the number of slides
-    </div>
-    
-    </div>  -->
 
-   
   </main>
 
   <script src="./../src/scripts/authentication.js" defer type="module"></script>
@@ -232,6 +246,8 @@
   <script src="./../src/scripts/slider.js" defer type="module"></script>
   <script src="./../src/scripts/recipes.js" defer type="module"></script>
   <script src="./../src/scripts/restaurant.js" defer type="module"></script>
+  <script src="./../src/scripts/carouselmultiple.js" defer type="module"></script>
+
   <script src="./../src/index.js"></script>
 
 </body>

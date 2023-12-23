@@ -3,12 +3,13 @@ let currentIndex;
 
 const imgSlider = simpleslider.getSlider({
   container: document.getElementById('carousel-container'),
-  prop: 'left',
-  init: -612,
-  show: 0,
-  end: 612,
-  unit: 'px',
-  transitionTime: 0.5,
+  prop: 'opacity',
+  unit: '',
+  init: 0,
+  show: 1,
+  end: 0,
+  
+  transitionTime: 5,
   delay: 1.5,
   onChange: () => changeSlide(imgSlider.currentIndex())
 });

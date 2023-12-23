@@ -47,7 +47,6 @@ function stars(data){
 }
 
 function reviewPrint(data) {
-    console.log('her is the data ' + JSON.stringify(data))
     return `
     <div id="card-review">
     <img src="img/restaurantExample.jpg" />
